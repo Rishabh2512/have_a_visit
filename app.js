@@ -1,3 +1,4 @@
+
 var express     = require("express"),
 	app         = express(),
     bodyParser  = require("body-parser"),
@@ -17,7 +18,7 @@ var commentRoutes    =require("./routes/comments"),
 
 // seedDB(); //no add to db
 
-mongoose.connect("mongodb://localhost:27017/have_a_visit",{
+mongoose.connect("mongodb+srv://Rishabh2512:Rishabh25@@cluster0.tfod7.mongodb.net/Rishabh2512?retryWrites=true&w=majority",{
 	useNewUrlParser: true ,
 	useFindAndModify: false,
     useUnifiedTopology: true
@@ -57,9 +58,10 @@ app.use('/', indexRoutes)
 app.use("/campgrounds/:id/comments",commentRoutes)
 app.use("/campgrounds",campgroundRoutes)
 
-app.listen(5678,function(){
-	console.log("The Have_a_Visit Camp Server Is Working!!!!");
-})
+var port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log("Have_a_Visit Server started!");
+});
 
 
 
