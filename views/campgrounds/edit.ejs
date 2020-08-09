@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Have_a_Visit</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+		<style>
+			body {
+				  background-color: #000;
+				}
+			#landing-header {
+				  z-index: 1;
+				  position: relative;
+				  text-align: center;
+				  padding-top: 40vh;
+				}
+			#landing-header h1 {
+				  color: #fff;
+				}
+			.slideshow { 
+				  position: fixed;
+				  width: 100%;
+				  height: 100%;
+				  top: 0;
+				  left: 0;
+				  z-index: 0;
+				  list-style: none;
+				  margin: 0;
+				  padding: 0;
+				}
+			
+			.slideshow li { 
+						  width: 100%;
+						  height: 100%;
+						  position: absolute;
+						  top: 0;
+						  left: 0;
+						  background-size: cover;
+						  background-position: 50% 50%;
+						  background-repeat: no-repeat;
+						  opacity: 0;
+						  z-index: 0;
+						  animation: imageAnimation 50s linear infinite; 
+						}
+			.slideshow li:nth-child(1) { 
+							  background-image: url(<%= campground.image %>) 
+							}
+							.slideshow li:nth-child(2) { 
+							  background-image: url(<%= campground.image %>);
+							  animation-delay: 10s; 
+							}
+							.slideshow li:nth-child(3) { 
+							  background-image: url(<%= campground.image %>);
+							  animation-delay: 20s; 
+							}
+							.slideshow li:nth-child(4) { 
+							  background-image: url(<%= campground.image %>);
+							  animation-delay: 30s; 
+							}
+							.slideshow li:nth-child(5) { 
+							  background-image: url(<%= campground.image %>);
+							  animation-delay: 40s; 
+							}
+			@keyframes imageAnimation { 
+					  0% { 
+						opacity: 0; 
+						animation-timing-function: ease-in;
+					  }
+					  10% {
+						opacity: 1;
+						animation-timing-function: ease-out;
+					  }
+					  20% {
+						opacity: 1
+					  }
+					  30% {
+						opacity: 0
+					  }
+					}
+			
+		</style>
+    </head>
+    <body>
+
+
+<div id="landing-header"class="container">
+<div style="text-align : center; ">
+ <h1>
+	Edit <%=campground.name %> !
+ </h1>
+</div>
+
+<div style="width:30%; margin:30px auto;">
+	<div class="form-group">
+	<form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+		<div class="form-group">
+		<input class="form-control" type="text" name="campground[name]" value="<%= campground.name %>">
+		</div>
+		<div class="form-group">
+		<input class="form-control" type="number" name="campground[price]" value="<%= campground.price %>" min="1.0" step="1.0">
+		</div>
+		<div class="form-group">
+		<input class="form-control" type="text" name="campground[image]" value="<%= campground.image %>">
+		</div>
+		<div class="form-group">
+		<input  class="form-control" type="text" name="campground[description]" value="<%= campground.description %>">
+		</div>
+		<div class="form-group">
+		<button class="btn btn-primary btn-block">Submit</button>
+		</div>
+	</form>
+	<a href="/campgrounds" style="margin: 100px auto">Go Back</a>
+</div>
+	
+</div>
+
+</div>
+		
+		
+	<ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<%- include("../partials/footer") %>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Have_a_Visit</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+		<style>
+			body {
+				  background-color: #000;
+				}
+			#landing-header {
+				  z-index: 1;
+				  position: relative;
+				  text-align: center;
+				  padding-top: 40vh;
+				}
+			#landing-header h1 {
+				  color: #fff;
+				}
+			.slideshow { 
+				  position: fixed;
+				  width: 100%;
+				  height: 100%;
+				  top: 0;
+				  left: 0;
+				  z-index: 0;
+				  list-style: none;
+				  margin: 0;
+				  padding: 0;
+				}
+			
+			.slideshow li { 
+						  width: 100%;
+						  height: 100%;
+						  position: absolute;
+						  top: 0;
+						  left: 0;
+						  background-size: cover;
+						  background-position: 50% 50%;
+						  background-repeat: no-repeat;
+						  opacity: 0;
+						  z-index: 0;
+						  animation: imageAnimation 50s linear infinite; 
+						}
+			.slideshow li:nth-child(1) { 
+							  background-image: url(https://media.gettyimages.com/photos/close-up-of-colored-pencils-tips-picture-id1174509202?s=2048x2048) 
+							}
+							.slideshow li:nth-child(2) { 
+							  background-image: url(https://media.gettyimages.com/photos/sunset-at-kumbh-mela-allahabad-picture-id162226145?s=2048x2048);
+							  animation-delay: 10s; 
+							}
+							.slideshow li:nth-child(3) { 
+							  background-image: url(https://media.gettyimages.com/photos/six-thousand-filipino-participantswearing-yellow-and-black-shirts-on-picture-id475259926?s=2048x2048);
+							  animation-delay: 20s; 
+							}
+							.slideshow li:nth-child(4) { 
+							  background-image: url(https://media.gettyimages.com/photos/temporary-tents-for-devotees-are-pictured-at-dusk-at-sangam-the-of-picture-id161617615?s=2048x2048);
+							  animation-delay: 30s; 
+							}
+							.slideshow li:nth-child(5) { 
+							  background-image: url(https://media.gettyimages.com/photos/indian-christian-devotees-pray-at-st-josephs-cathedral-on-the-eve-of-picture-id485286515?s=2048x2048);
+							  animation-delay: 40s; 
+							}
+			@keyframes imageAnimation { 
+					  0% { 
+						opacity: 0; 
+						animation-timing-function: ease-in;
+					  }
+					  10% {
+						opacity: 1;
+						animation-timing-function: ease-out;
+					  }
+					  20% {
+						opacity: 1
+					  }
+					  30% {
+						opacity: 0
+					  }
+					}
+			
+		</style>
+    </head>
+    <body>
+
+<div id="landing-header" class="container">
+		<div  style="text-align : center; ">
+			 <h1>Add new Place To Have_a_Visit</h1>
+		</div>
+
+			<div style="width:30%; margin:30px auto;">
+				<div class="form-group">
+				<form action="/campgrounds" method="POST">
+					<div class="form-group">
+					<input class="form-control" type="text" name="name" placeholder="Have_a_Visit Here">
+					</div>
+					<div class="form-group">
+					<input class="form-control" type="number" name="price" placeholder="Expected Outgoing" min="1.0" step="1.0">
+					</div>
+					<div class="form-group">
+					<input class="form-control" type="text" name="image" placeholder="Add img to Your Have_a_Visit">
+					</div>
+					<div class="form-group">
+					<input  class="form-control" type="text" name="description" placeholder="Description">
+					</div>
+					<div class="form-group">
+					<button class="btn btn-primary btn-block">Submit</button>
+					</div>
+				</form>
+				<a href="/campgrounds" style="margin: 100px auto">Go Back</a>
+			</div>
+
+		</div>
+
+			</div>
+		
+	<ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+<%- include("../partials/footer") %>
