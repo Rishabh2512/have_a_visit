@@ -17,8 +17,8 @@ var commentRoutes    =require("./routes/comments"),
     indexRoutes      =require("./routes/index")
 
 // seedDB(); //no add to db
-
-mongoose.connect("mongodb+srv://Rishabh2512:Rishabh25@@cluster0.tfod7.mongodb.net/Rishabh2512?retryWrites=true&w=majority",{
+//mongodb+srv://Rishabh2512:<password>@cluster0.tfod7.mongodb.net/<dbname>?retryWrites=true&w=majority
+mongoose.connect("mongodb+srv://Rishabh2512:Rishabh25@@cluster0.tfod7.mongodb.net/Have_a_Visit?retryWrites=true&w=majority",{
 	useNewUrlParser: true ,
 	useFindAndModify: false,
     useUnifiedTopology: true
@@ -65,20 +65,3 @@ app.listen(port, function () {
 
 
 
-
-
-// save data to database(mongodb) yelp_camp using mongoose
-
-
-// Campgrounds.create({
-// 	name: "Town Hill",
-// 	img : "https://images.pexels.com/photos/2589679/pexels-photo-2589679.jpeg?    auto=compress&cs=tinysrgb&h=350",
-// 	description: "Happy Place to live!!! Have some time here!"
-// },function(err,campground){
-// 	if(err){
-// 		console.log(err);
-// 	}else{
-// 		console.log("Newly Item Added to DB!!");
-// 		console.log(campground);
-// 	}
-// })
